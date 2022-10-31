@@ -1,0 +1,10 @@
+  - platform: rest
+    resource: https://edpfuture.ssam.se/FutureWeb/SimpleWastePickup/GetWastePickupSchedule?address=(YOUR_CUSTOMER_NO)
+    name: Soptunna 1
+    value_template: '{{ value_json["RhServices"][0].NextWastePickup }}'
+    scan_interval: 28800
+  - platform: rest
+    resource: https://edpfuture.ssam.se/FutureWeb/SimpleWastePickup/GetWastePickupSchedule?address=(YOUR_CUSTOMER_NO)
+    name: Soptunna 2
+    value_template: '{{ value_json["RhServices"][1].NextWastePickup }}'
+    scan_interval: 28800
