@@ -1,4 +1,5 @@
-  - platform: rest
+sensor:
+- platform: rest
     resource: https://edpfuture.ssam.se/FutureWeb/SimpleWastePickup/GetWastePickupSchedule?address=(YOUR_CUSTOMER_NO)
     name: Soptunna 1
     value_template: '{{ value_json["RhServices"][0].NextWastePickup }}'
