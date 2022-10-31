@@ -1,0 +1,18 @@
+alias: Meddela dagen innan soptunna-1 ska tömmas
+description: ""
+trigger:
+  - platform: time
+    at: "18:28:00"
+condition:
+  - condition: template
+    value_template: >
+      {{ now().date() + timedelta(days=1) ==
+      strptime(states('sensor.ssam_nextwastepickupbin1'), '%Y-%m-%d').date() }}
+action:
+  - service: notify.mobile_app_jonas
+    data:
+      message: Imorgon töms soptunna 1
+  - service: notify.mobile_app_carina
+    data:
+      message: Imorgon töms /n soptunna 1
+mode: single
